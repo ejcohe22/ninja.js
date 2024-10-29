@@ -1,7 +1,7 @@
 export default class GameObject {
     constructor(game_width, game_height, spritesheet){
         // Generic
-        this.scale = 4;
+        this.scale = 2;
         this.game_width = game_width;
         this.game_height = game_height;
         this.fps = 30;
@@ -15,8 +15,8 @@ export default class GameObject {
         this.frames = [0,25,60,80];
 
         //position on canvas
-        this.x = 0;
-        this.y = 0;
+        this.x = 60;
+        this.y = this.game_height - 300;
         this.x_velocity = 0;
         this.y_velocity = 0;
 
@@ -42,11 +42,21 @@ export default class GameObject {
         let frame_data = this.frames[this.frame];
         //console.log(`x: ${this.x}, y: ${this.y} - spritesheet col: ${frame_data[0]}, spritesheet row: ${frame_data[1]} - w: ${frame_data[2]}, h: ${frame_data[3]}`)
 
+        var furtherst_left = frame_data[2] * this.scale;
+        var furhtest_right = this.game_width;
+
+        if ( this.x < furtherst_left ){
+            this.x = furtherst_left;
+        }else if ( this.x > furhtest_right ){
+            this.x = furhtest_right;
+        }
+
+
         context.drawImage(
             this.spritesheet,// img to take section of
             frame_data[0], frame_data[1], //row and col of section
             frame_data[2], frame_data[3],// height and width of img selection
-            this.x, this.y,// where on canvas
+            this.x - (frame_data[2] * this.scale), this.y - (frame_data[3] * this.scale),// where on canvas
             this.scale * frame_data[2], this.scale * frame_data[3]//scale image
         );  
     }

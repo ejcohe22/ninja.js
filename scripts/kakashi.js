@@ -113,7 +113,7 @@ class WALKRIGHT extends State {
         this.player = player
     }
     enter_state(){
-        //this.player.x_velocity = 20;
+        this.player.x_velocity = 20;
         this.player.frames = [         
             [20, 477, 40, 70],
             [55, 477, 40, 70],
@@ -141,7 +141,7 @@ class WALKLEFT extends State {
         this.player = player
     }
     enter_state(){
-        //this.player.x_velocity = -20;
+        this.player.x_velocity = -20;
         this.player.frames = [            
             [333, 478, 40, 70],
             [372, 478, 40, 70],
@@ -169,7 +169,7 @@ class RUNRIGHT extends State {
         this.player = player
     }
     enter_state(){
-        //this.player.x_velocity = -20;
+        this.player.x_velocity = 40;
         this.player.frames = [            
             [21, 608, 60, 60],
             [79, 608, 60, 60],
@@ -197,7 +197,7 @@ class RUNLEFT extends State {
         this.player = player
     }
     enter_state(){
-        //this.player.x_velocity = -20;
+        this.player.x_velocity = -40;
         this.player.frames = [            
             [501, 608, 60, 60],
             [561, 608, 60, 60],

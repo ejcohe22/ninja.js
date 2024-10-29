@@ -10,11 +10,11 @@ export default class InputHandler {
             console.log(delta)
             switch(event.key){
                 case "ArrowLeft":
-                    if ( this.last_key === 'Left up' && delta < 400 ){ this.double = true; }
+                    if ( this.last_key === 'Left up' && delta < 275 ){ this.double = true; }
                     this.last_key = "Left down";
                     break;
                 case "ArrowRight":
-                    if ( this.last_key === 'Right up' && delta < 400 ){ this.double = true; }
+                    if ( this.last_key === 'Right up' && delta < 275 ){ this.double = true; }
                     this.last_key = "Right down";
                     break;
                 case "ArrowDown":
