@@ -4,9 +4,9 @@ export default class GameObject {
         this.scale = 4;
         this.game_width = game_width;
         this.game_height = game_height;
-        this.fps = 1;
+        this.fps = 30;
         this.frame_timer = 0;
-        this.frame_interval = 100 / this.fps;
+        this.frame_interval = 1000 / this.fps;
         this.frame = 0;
         this.states = [];
         this.current_state = 0;
@@ -58,4 +58,7 @@ export default class GameObject {
     update(input){
         this.current_state.handle_input(input);
     }
+    setFPS(fps){
+        this.fps = fps;
+        this.frame_interval = 1000 / this.fps;}
 }

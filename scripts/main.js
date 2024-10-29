@@ -13,6 +13,7 @@ window.addEventListener('load', function(){
     const input = new InputHandler();
     //const sasuke = new Sasuke(canvas.width, canvas.height);
     const kakashi = new Kakashi(canvas.width, canvas.height);
+    kakashi.setFPS(20);
 
     let lastTime = 0;
     function animate(timeStamp){

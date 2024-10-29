@@ -5,6 +5,9 @@ const states = {
     STANCELEFT:1,
     WALKRIGHT:2,
     WALKLEFT:3,
+    RUNRIGHT:4,
+    RUNLEFT:5,
+    
 }
 export default class Kakashi extends GameObject{
     constructor(game_width, game_height){
@@ -16,11 +19,13 @@ export default class Kakashi extends GameObject{
             new STANCELEFT(this),
             new WALKRIGHT(this),
             new WALKLEFT(this),
+            new RUNRIGHT(this),
+            new RUNLEFT(this),
         ];
 
         //Start Player
         this.initialize_states(states);
-        this.fps=1;
+        this.setState(5)
     }
 }
 
@@ -61,7 +66,7 @@ class STANCELEFT extends State {
         this.player = player
     }
     enter_state(){
-        this.player.x_velocity = 0;
+        //this.player.x_velocity = 0;
         this.player.frames = [
                          /** **/
             [400, 352, 50, 70],
@@ -121,7 +126,7 @@ class WALKLEFT extends State {
         this.player = player
     }
     enter_state(){
-        this.player.x_velocity = -20;
+        //this.player.x_velocity = -20;
         this.player.frames = [            
             [333, 478, 40, 70],
             [372, 478, 40, 70],
@@ -140,5 +145,65 @@ class WALKLEFT extends State {
             default:
                 null;
         }
+    }
+}
+
+class RUNRIGHT extends State {
+    constructor(player){
+        super('RUNRIGHT')
+        this.player = player
+    }
+    enter_state(){
+        //this.player.x_velocity = -20;
+        this.player.frames = [            
+            [21, 608, 60, 60],
+            [79, 608, 60, 60],
+            [140, 608, 60, 60],
+            [200, 608, 60, 60],
+            [262, 608, 60, 60],
+            [325, 608, 60, 60],
+        ];
+        this.player.frame = 0;
+    }
+    handle_input(input){
+        /** 
+        switch (input.last_key){
+            case 'Left up':
+                this.player.setState(states.STANCELEFT);
+                break;
+            default:
+                null;
+        }
+        */
+    }
+}
+
+class RUNLEFT extends State {
+    constructor(player){
+        super('RUNRLEFT')
+        this.player = player
+    }
+    enter_state(){
+        //this.player.x_velocity = -20;
+        this.player.frames = [            
+            [501, 608, 60, 60],
+            [561, 608, 60, 60],
+            [615, 608, 60, 60],
+            [681, 608, 60, 60],
+            [741, 608, 60, 60],
+            [801, 608, 60, 60],
+        ];
+        this.player.frame = 0;
+    }
+    handle_input(input){
+        /** 
+        switch (input.last_key){
+            case 'Left up':
+                this.player.setState(states.STANCELEFT);
+                break;
+            default:
+                null;
+        }
+        */
     }
 }
