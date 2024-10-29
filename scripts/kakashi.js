@@ -25,7 +25,7 @@ export default class Kakashi extends GameObject{
 
         //Start Player
         this.initialize_states(states);
-        this.setState(5)
+        this.setState(0)
     }
 }
 
@@ -49,10 +49,18 @@ class STANCERIGHT extends State {
     handle_input(input){
         switch (input.last_key){
             case 'Left down':
-                this.player.setState(states.WALKLEFT);
+                if (input.double) {
+                    this.player.setState(states.RUNLEFT);
+                } else {
+                    this.player.setState(states.WALKLEFT);
+                }
                 break;
             case 'Right down':
-                this.player.setState(states.WALKRIGHT);
+                if (input.double) {
+                    this.player.setState(states.RUNRIGHT);
+                } else {
+                    this.player.setState(states.WALKRIGHT);
+                }
                 break;
             default:
                 null;
@@ -66,9 +74,8 @@ class STANCELEFT extends State {
         this.player = player
     }
     enter_state(){
-        //this.player.x_velocity = 0;
+        this.player.x_velocity = 0;
         this.player.frames = [
-                         /** **/
             [400, 352, 50, 70],
             [448, 352, 50, 70],
             [495, 352, 50, 70],
@@ -81,10 +88,18 @@ class STANCELEFT extends State {
     handle_input(input){
         switch (input.last_key){
             case 'Left down':
-                this.player.setState(states.WALKLEFT);
+                if (input.double) {
+                    this.player.setState(states.RUNLEFT);
+                } else {
+                    this.player.setState(states.WALKLEFT);
+                }
                 break;
             case 'Right down':
-                this.player.setState(states.WALKRIGHT);
+                if (input.double) {
+                    this.player.setState(states.RUNRIGHT);
+                } else {
+                    this.player.setState(states.WALKRIGHT);
+                }
                 break;
             default:
                 null;
@@ -98,7 +113,7 @@ class WALKRIGHT extends State {
         this.player = player
     }
     enter_state(){
-        this.player.x_velocity = 20;
+        //this.player.x_velocity = 20;
         this.player.frames = [         
             [20, 477, 40, 70],
             [55, 477, 40, 70],
@@ -166,15 +181,13 @@ class RUNRIGHT extends State {
         this.player.frame = 0;
     }
     handle_input(input){
-        /** 
         switch (input.last_key){
-            case 'Left up':
-                this.player.setState(states.STANCELEFT);
+            case 'Right up':
+                this.player.setState(states.STANCERIGHT);
                 break;
             default:
                 null;
         }
-        */
     }
 }
 
@@ -196,7 +209,6 @@ class RUNLEFT extends State {
         this.player.frame = 0;
     }
     handle_input(input){
-        /** 
         switch (input.last_key){
             case 'Left up':
                 this.player.setState(states.STANCELEFT);
@@ -204,6 +216,5 @@ class RUNLEFT extends State {
             default:
                 null;
         }
-        */
     }
 }

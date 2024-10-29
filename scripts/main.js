@@ -20,7 +20,7 @@ window.addEventListener('load', function(){
         const delta = timeStamp-lastTime;
         lastTime = timeStamp;
         ctx.clearRect(0,0,canvas.width,canvas.height)
-        console.log(input.last_key);
+        console.log(input.last_key, input.double);
         //sasuke.draw(ctx, delta);
         kakashi.update(input);
         kakashi.draw(ctx, delta);

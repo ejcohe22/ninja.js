@@ -40,7 +40,7 @@ export default class GameObject {
             this.frame %= this.frames.length;
         }
         let frame_data = this.frames[this.frame];
-        console.log(`x: ${this.x}, y: ${this.y} - spritesheet col: ${frame_data[0]}, spritesheet row: ${frame_data[1]} - w: ${frame_data[2]}, h: ${frame_data[3]}`)
+        //console.log(`x: ${this.x}, y: ${this.y} - spritesheet col: ${frame_data[0]}, spritesheet row: ${frame_data[1]} - w: ${frame_data[2]}, h: ${frame_data[3]}`)
 
         context.drawImage(
             this.spritesheet,// img to take section of
