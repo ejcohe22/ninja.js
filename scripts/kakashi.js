@@ -6,7 +6,8 @@ const states = {
     WALKRIGHT:2,
     WALKLEFT:3,
     RUNRIGHT:4,
-    RUNLEFT:5,
+    RUNLEFT:5, 
+    JUMP:6,
     
 }
 export default class Kakashi extends GameObject{
@@ -21,6 +22,7 @@ export default class Kakashi extends GameObject{
             new WALKLEFT(this),
             new RUNRIGHT(this),
             new RUNLEFT(this),
+            new JUMP(this),
         ];
 
         //Start Player
@@ -217,4 +219,11 @@ class RUNLEFT extends State {
                 null;
         }
     }
+class JUMP extends State {
+    constructor(player){
+        super('JUMP')
+        this.player = player
+    }           
 }
+}
+// to do : add jumping, falling // 
